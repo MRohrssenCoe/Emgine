@@ -19,6 +19,7 @@
     <ClInclude Include="EngineStructs.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
