@@ -12,9 +12,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineMain.cpp" />
-    <ClCompile Include="Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
     <ClInclude Include="EngineMain.h" />
     <ClInclude Include="EngineStructs.h" />
     <ClInclude Include="Entity.h" />

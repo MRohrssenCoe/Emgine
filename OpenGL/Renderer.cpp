@@ -12,7 +12,7 @@ void RenderManager::Draw() {
 		//MODELS MUST BE IN TRIANGLES
 		//TRIANGLES MUST BE THREE SETS OF THREE COORDINATES
 		vector<float> currentModel = models[i];
-		Transform currentTransform = transforms[i];
+		Transform currentTransform = *transforms[i];
 		Vector3f s = currentTransform.GetScale();
 		Vector3f r = currentTransform.GetRotation();
 		Vector3f t = currentTransform.GetTranslation();
@@ -20,11 +20,11 @@ void RenderManager::Draw() {
 
 		//Transformations
 		glMatrixMode(GL_MODELVIEW);
-		/*glScalef(s.x, s.y, s.z);
+		glScalef(s.x, s.y, s.z);
 		glRotatef(r.x, 1, 0, 0);
 		glRotatef(r.y, 0, 1, 0);
 		glRotatef(r.z, 0, 0, 1);
-		glTranslatef(t.x, t.y, t.z);*/
+		glTranslatef(t.x, t.y, t.z);
 
 		for (int j = 0; j < currentModel.size(); j += 9) {
 
@@ -39,7 +39,7 @@ void RenderManager::Draw() {
 }
 //TODO evaluate whether copying data into list of models is faster than
 //passing a pointer to whereever the model is loaded
-int RenderManager::AddDrawable(std::vector<float> model, Transform transform) {
+int RenderManager::AddDrawable(std::vector<float> model, Transform* transform) {
 	numModels++;
 	models.push_back(model);
 	transforms.push_back(transform);

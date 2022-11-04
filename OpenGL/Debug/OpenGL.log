@@ -1,4 +1,6 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   EngineMain.cpp
-C:\Users\Admin\Desktop\Engine\OpenGL\Renderer.cpp(29,21): warning C4018: '<': signed/unsigned mismatch
-  OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Debug\OpenGL.exe
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(29,21): warning C4018: '<': signed/unsigned mismatch
+  LINK : C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe not found or not built by the last incremental link; performing full link
+EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe

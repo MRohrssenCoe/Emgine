@@ -11,14 +11,14 @@ class RenderManager {
 public:
 	RenderManager();
 	//return the id of the drawable thing
-	int AddDrawable(std::vector<float>, Transform);
+	int AddDrawable(std::vector<float>, Transform*);
 	//remove drawable by id
 	void RemDrawable(int);
 	void Draw();
 private:
 	//list of drawable things - TODO decide data type
 	std::vector<std::vector<float>> models;
-	std::vector<Transform> transforms;
+	std::vector<Transform*> transforms;
 	int numModels = 0;
 };
 RenderManager RM;
