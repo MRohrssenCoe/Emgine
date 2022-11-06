@@ -18,6 +18,7 @@
     <ClInclude Include="EngineMain.h" />
     <ClInclude Include="EngineStructs.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>

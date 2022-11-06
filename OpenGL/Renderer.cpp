@@ -11,7 +11,8 @@ void RenderManager::Draw() {
 	for (int i = 0; i < numModels; i++) {
 		//MODELS MUST BE IN TRIANGLES
 		//TRIANGLES MUST BE THREE SETS OF THREE COORDINATES
-		vector<float> currentModel = models[i];
+		vector<Vector3f> currentModel = models[i];
+		vector<int> ind = indices[i];
 		Transform currentTransform = *transforms[i];
 		Vector3f s = currentTransform.GetScale();
 		Vector3f r = currentTransform.GetRotation();
@@ -26,22 +27,23 @@ void RenderManager::Draw() {
 		glRotatef(r.z, 0, 0, 1);
 		glTranslatef(t.x, t.y, t.z);
 
-		for (int j = 0; j < currentModel.size(); j += 9) {
-
+		for (int j = 0; j < ind.size(); j += 3) {
 			glBegin(GL_POLYGON);
-				glVertex3f(currentModel[j], currentModel[j+1], currentModel[j+2]);
-				glVertex3f(currentModel[j+3], currentModel[j+4], currentModel[j+5]);
-				glVertex3f(currentModel[j+6], currentModel[j+7], currentModel[j+8]);
+				glVertex3f(currentModel[ind[j]].x, currentModel[ind[j]].y, currentModel[ind[j]].z);
+				glVertex3f(currentModel[ind[j+1]].x, currentModel[ind[j+1]].y, currentModel[ind[j+1]].z);
+				glVertex3f(currentModel[ind[j+2]].x, currentModel[ind[j+2]].y, currentModel[ind[j+2]].z);
 			glEnd();
-		
 		}
+		glPopMatrix();
 	}
+	glFlush();
 }
 //TODO evaluate whether copying data into list of models is faster than
 //passing a pointer to whereever the model is loaded
-int RenderManager::AddDrawable(std::vector<float> model, Transform* transform) {
+int RenderManager::AddDrawable(std::vector<Vector3f> model, std::vector<int> ind, Transform* transform) {
 	numModels++;
 	models.push_back(model);
+	indices.push_back(ind);
 	transforms.push_back(transform);
 	return numModels - 1;
 }
