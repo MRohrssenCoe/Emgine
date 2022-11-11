@@ -33,9 +33,10 @@ int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
 	//RM.AddDrawable(model, indices, &t);
-	Model model("../marquisv.3.obj");
+	Model model("../marquisv.3.obj", true);
 	std::cout << "model declared" << std::endl;
 	model.Init();
+	model.Tick();
 
 	glutTimerFunc(0, mainloop, 0);
 	glutMainLoop();

@@ -4,11 +4,18 @@
 
 class Model : Component {
 public:
-	Model(std::string);
+	Model(std::string, bool);
 	void Init() override;
 	void Tick() override;
 	~Model() override;
 	std::string ModelPath;
+	// if a model is dynamic its normals must be recalculated
+	bool dynamic;
+private:
+	void CalcNormals();
+	std::vector<Vector3f> model;
+	std::vector<int> indices;
+	std::vector<Vector3f> normals;
 };
 
 #include "ModelComp.cpp"

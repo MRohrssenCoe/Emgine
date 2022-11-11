@@ -16,8 +16,8 @@ void RenderManager::Draw() {
 	for (int i = 0; i < numModels; i++) {
 		//MODELS MUST BE IN TRIANGLES
 		//TRIANGLES MUST BE THREE SETS OF THREE COORDINATES
-		vector<Vector3f> currentModel = models[i];
-		vector<int> ind = indices[i];
+		vector<Vector3f>* currentModel = models[i];
+		vector<int>* ind = indices[i];
 		Transform *currentTransform = transforms[i];
 		Vector3f s = currentTransform->GetScale();
 		Vector3f r = currentTransform->GetRotation();
@@ -34,11 +34,13 @@ void RenderManager::Draw() {
 		glRotatef(r.z, 0, 0, 1);
 		glTranslatef(t.x, t.y, t.z);
 
-		for (int j = 0; j < ind.size(); j += 3) {
+		Vector3f* verticesPtr = currentModel->data();
+		int* indicesPtr = ind->data();
+		for (int j = 0; j < ind->size(); j += 3) {
 			glBegin(GL_POLYGON);
-				glVertex3f(currentModel[ind[j]].x, currentModel[ind[j]].y, currentModel[ind[j]].z);
-				glVertex3f(currentModel[ind[j+1]].x, currentModel[ind[j+1]].y, currentModel[ind[j+1]].z);
-				glVertex3f(currentModel[ind[j+2]].x, currentModel[ind[j+2]].y, currentModel[ind[j+2]].z);
+				glVertex3f(verticesPtr[indicesPtr[j]].x, verticesPtr[indicesPtr[j]].y, verticesPtr[indicesPtr[j]].z);
+				glVertex3f(verticesPtr[indicesPtr[j + 1]].x, verticesPtr[indicesPtr[j+1]].y, verticesPtr[indicesPtr[j+1]].z);
+				glVertex3f(verticesPtr[indicesPtr[j+2]].x, verticesPtr[indicesPtr[j+2]].y, verticesPtr[indicesPtr[j+2]].z);
 			glEnd();
 		}
 		//TODO remove this and only do stuff like this in Tick() funciton
@@ -51,7 +53,7 @@ void RenderManager::Draw() {
 //TODO evaluate whether copying data into list of models is faster than
 //passing a pointer to whereever the model is loaded
 
-int inline RenderManager::AddDrawable(std::vector<Vector3f> model, std::vector<int> ind, Transform* transform) {
+int inline RenderManager::AddDrawable(std::vector<Vector3f>* model, std::vector<int>* ind, Transform* transform) {
 	numModels++;
 	models.push_back(model);
 	indices.push_back(ind);
@@ -63,7 +65,7 @@ RenderManager::RenderManager() {
 }
 
 void RenderManager::RemDrawable(int id) {
-	models[id].clear();
+	models[id]->clear();
 }
 
 void Draw() {

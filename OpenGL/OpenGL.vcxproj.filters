@@ -44,5 +44,8 @@
     <ClInclude Include="ModelComp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
