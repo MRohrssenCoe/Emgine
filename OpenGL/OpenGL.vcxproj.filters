@@ -41,5 +41,8 @@
     <ClInclude Include="OBJ_Loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ModelComp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ struct Color3f {
 };
 
 struct Vector3f {
-	float x, y, z = 0.0;
+	float x=0, y=0, z = 0.0;
 	Vector3f& operator +(const Vector3f& other) {
 		x = other.x + x;
 		y = other.y + y;

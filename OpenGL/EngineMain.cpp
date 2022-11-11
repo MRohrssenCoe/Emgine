@@ -1,6 +1,6 @@
 #include "EngineMain.h"
 #include "OBJ_Loader.h"
-
+#include "ModelComp.h"
 std::vector<Entity> entities;
 void mainloop(int value)
 {
@@ -16,7 +16,7 @@ void mainloop(int value)
 
 objl::Loader loader;
 int main(int argc, char **argv) {
-	loader.LoadFile("../marquisv.3.obj");
+	/*loader.LoadFile("../marquisv.3.obj");
 	std::vector<Vector3f> model;
 	for (int i = 0; i < loader.LoadedVertices.size(); i++) {
 		Vector3f v;
@@ -29,10 +29,12 @@ int main(int argc, char **argv) {
 	for (int i = 0; i < loader.LoadedIndices.size(); i++) {
 		indices.push_back(loader.LoadedIndices[i]);
 	}
-	Transform t;
+	Transform t;*/
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
-	RM.AddDrawable(model, indices, &t);
+	//RM.AddDrawable(model, indices, &t);
+	Model model("./marquisv.3.obj");
+	model.Init();
 
 	glutTimerFunc(0, mainloop, 0);
 	glutMainLoop();
