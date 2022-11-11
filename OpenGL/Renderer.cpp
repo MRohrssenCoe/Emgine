@@ -3,9 +3,14 @@
 void RenderManager::Draw() {
 	using namespace std;
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
 	//glLookAt call here
 	//glMatrixMode(GL_PROJECTION)
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//gluPerspective must be called prior to gluLookAt()!!!
+	gluPerspective(90, 16.0 / 9.0, 1, 1000);
+	gluLookAt(75, 75, 75, 0, 0, 0, 0, 1, 0);
+
 	//draw all models -> no texturing/coloring yet
 
 	for (int i = 0; i < numModels; i++) {
@@ -13,14 +18,16 @@ void RenderManager::Draw() {
 		//TRIANGLES MUST BE THREE SETS OF THREE COORDINATES
 		vector<Vector3f> currentModel = models[i];
 		vector<int> ind = indices[i];
-		Transform currentTransform = *transforms[i];
-		Vector3f s = currentTransform.GetScale();
-		Vector3f r = currentTransform.GetRotation();
-		Vector3f t = currentTransform.GetTranslation();
+		Transform *currentTransform = transforms[i];
+		Vector3f s = currentTransform->GetScale();
+		Vector3f r = currentTransform->GetRotation();
+		Vector3f t = currentTransform->GetTranslation();
 
 
 		//Transformations
 		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+		glPushMatrix();
 		glScalef(s.x, s.y, s.z);
 		glRotatef(r.x, 1, 0, 0);
 		glRotatef(r.y, 0, 1, 0);
@@ -34,13 +41,17 @@ void RenderManager::Draw() {
 				glVertex3f(currentModel[ind[j+2]].x, currentModel[ind[j+2]].y, currentModel[ind[j+2]].z);
 			glEnd();
 		}
+		//TODO remove this and only do stuff like this in Tick() funciton
+		currentTransform->AddRotation(Vector3f{ 0, 1, 0 });
 		glPopMatrix();
 	}
-	glFlush();
+	glutSwapBuffers();
+
 }
 //TODO evaluate whether copying data into list of models is faster than
 //passing a pointer to whereever the model is loaded
-int RenderManager::AddDrawable(std::vector<Vector3f> model, std::vector<int> ind, Transform* transform) {
+
+int inline RenderManager::AddDrawable(std::vector<Vector3f> model, std::vector<int> ind, Transform* transform) {
 	numModels++;
 	models.push_back(model);
 	indices.push_back(ind);
@@ -58,7 +69,6 @@ void RenderManager::RemDrawable(int id) {
 void Draw() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	RM.Draw();
-	glutSwapBuffers();
 }
 
 void engineGLInit(GLfloat width, GLfloat height) {

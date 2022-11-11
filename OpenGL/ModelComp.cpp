@@ -5,6 +5,7 @@ Model::Model(std::string modelPath) {
 	ModelPath = modelPath;
 }
 class Transform;
+Transform t;
 
 void Model::Init() {
 	objl::Loader loader;
@@ -23,7 +24,6 @@ void Model::Init() {
 		indices.push_back(loader.LoadedIndices[i]);
 	}
 	//for now do a default transform until this gets integrated with entity
-	Transform t;
 	RM.AddDrawable(model, indices, &t);
 }
 void Model::Tick() {
