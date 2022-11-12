@@ -15,12 +15,16 @@ public:
 	//remove drawable by id
 	void RemDrawable(int);
 	void Draw();
+	CameraInfo GetCurrentCameraInfo();
+	void SetCurrentCameraInfo(CameraInfo);
+	
 private:
 	//list of drawable things - TODO decide data type
 	std::vector<std::vector<Vector3f>*> models;
 	std::vector<std::vector<int>*> indices;
 	std::vector<Transform*> transforms;
 	int numModels = 0;
+	CameraInfo CurCameraInfo;
 };
 RenderManager RM;
 

@@ -13,3 +13,13 @@ struct Vector3f {
 	}
 };
 
+struct CameraInfo {
+	Vector3f EyeLoc;
+	Vector3f LookAtLoc;
+	Vector3f UpVector{ 0, 1, 0 }; // defualt to +y as up axis
+	float FOV = 90;
+	float NearClip = 1;
+	float FarClip = 1000;
+
+};
+

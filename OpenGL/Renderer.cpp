@@ -8,8 +8,10 @@ void RenderManager::Draw() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	//gluPerspective must be called prior to gluLookAt()!!!
-	gluPerspective(90, 16.0 / 9.0, 1, 1000);
-	gluLookAt(75, 75, 75, 0, 0, 0, 0, 1, 0);
+	gluPerspective(CurCameraInfo.FOV, 16.0 / 9.0, CurCameraInfo.NearClip, CurCameraInfo.FarClip);
+	gluLookAt(CurCameraInfo.EyeLoc.x, CurCameraInfo.EyeLoc.y, CurCameraInfo.EyeLoc.z,
+		CurCameraInfo.LookAtLoc.x, CurCameraInfo.LookAtLoc.y, CurCameraInfo.LookAtLoc.z,
+		0, 1, 0);
 
 	//draw all models -> no texturing/coloring yet
 
@@ -82,4 +84,10 @@ void engineGLInit(GLfloat width, GLfloat height) {
 }
 RenderManager& GetRenderManager() {
 	return RM;
+}
+CameraInfo RenderManager::GetCurrentCameraInfo() {
+	return CurCameraInfo;
+}
+void RenderManager::SetCurrentCameraInfo(CameraInfo c) {
+	CurCameraInfo = c;
 }

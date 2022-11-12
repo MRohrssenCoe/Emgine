@@ -42,7 +42,7 @@ void Model::CalcNormals() {
 		float v2[3] = { model[i+1].x, model[i+1].y, model[i+1].z };
 		float v3[3] = { model[i+2].x, model[i+2].y, model[i+2].z };
 
-
+		//TODO verify that this is the correct order
 		normalVector(v1, v2, v3, normal);
 		normals.push_back(Vector3f() = { normal[0], normal[1], normal[2] });
 	}
