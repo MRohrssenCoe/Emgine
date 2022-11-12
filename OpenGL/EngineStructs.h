@@ -9,7 +9,7 @@ struct Vector3f {
 		x = other.x + x;
 		y = other.y + y;
 		z = other.z + z;
-		return *this;
+		return Vector3f() = {x, y, z};
 	}
 };
 

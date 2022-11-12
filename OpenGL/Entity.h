@@ -1,6 +1,7 @@
 #pragma once
 #include "Transform.h"
 #include "Component.h"
+#include <variant>
 
 class Entity {
 public:
@@ -8,14 +9,15 @@ public:
 	virtual void Init();
 	void Tick();
 	virtual ~Entity();
-	template <typename T> void AddComponent(T component);
-	template <typename T> void RemComponent(T component);
+	int AddComponent(Component* component);
+	void RemComponent(int);
 	Transform getTransform();
 	void setTransform(Transform t);
 
 private:
 	Transform transform;
-	std::vector<Component> components;
+	std::vector<Component*> components;
+	int numComponents = 0;
 };
 
 
