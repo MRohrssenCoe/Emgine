@@ -2,6 +2,7 @@
 #include "ModelComp.h"
 #include "EngMath.h"
 class Vector3f;
+Model::Model(){}
 Model::Model(std::string modelPath, bool dyn) {
 	ModelPath = modelPath;
 	dynamic = dyn;

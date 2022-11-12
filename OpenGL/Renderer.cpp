@@ -65,7 +65,7 @@ RenderManager::RenderManager() {
 }
 
 void RenderManager::RemDrawable(int id) {
-	models[id]->clear();
+	models.erase(models.begin() + id);
 }
 
 void Draw() {

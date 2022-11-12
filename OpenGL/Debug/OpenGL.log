@@ -1,14 +1,17 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   EngineMain.cpp
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(39,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(2,20): warning C4018: '<': signed/unsigned mismatch
+  The contents of <variant> are available only with C++17 or later.
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(652,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(689,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(695,23): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(4,15): warning C4099: 'Vector3f': type name first seen using 'struct' now seen using 'class'
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineStructs.h(6): message : see declaration of 'Vector3f'
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(16,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(23,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(38,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(8,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(24,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(39,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineStructs.h(12): warning C4172: returning address of local variable or temporary
+EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe

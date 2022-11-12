@@ -2,8 +2,9 @@
 #include "Component.h"
 #include <string>
 
-class Model : Component {
+class Model : public Component {
 public:
+	Model();
 	Model(std::string, bool);
 	void Init() override;
 	void Tick() override;
