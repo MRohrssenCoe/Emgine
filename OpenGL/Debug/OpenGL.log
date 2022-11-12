@@ -1,18 +1,15 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   EngineMain.cpp
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\Renderer.cpp(39,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(35,43): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(38,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(17,6): warning C4102: 'std': unreferenced label
   The contents of <variant> are available only with C++17 or later.
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\Entity.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\OBJ_Loader.h(652,25): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\OBJ_Loader.h(689,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\OBJ_Loader.h(695,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\ModelComp.cpp(4,15): warning C4099: 'Vector3f': type name first seen using 'struct' now seen using 'class'
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\EngineStructs.h(6): message : see declaration of 'Vector3f'
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\ModelComp.cpp(17,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\ModelComp.cpp(50,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\ModelComp.cpp(57,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\ModelComp.cpp(72,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\EngineMain.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\turtl\source\repos\Emginethisone2222\OpenGL\EngineStructs.h(12): warning C4172: returning address of local variable or temporary
-EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  OpenGL.vcxproj -> C:\Users\turtl\source\repos\Emginethisone2222\Debug\OpenGL.exe
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(462,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(499,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(505,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(4,14): warning C4099: 'Vector3': type name first seen using 'struct' now seen using 'class'
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineStructs.h(8): message : see declaration of 'Vector3'
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(31,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(9,20): warning C4018: '<': signed/unsigned mismatch
+  OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe

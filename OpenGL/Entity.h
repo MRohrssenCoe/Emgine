@@ -11,7 +11,7 @@ public:
 	virtual ~Entity();
 	int AddComponent(Component* component);
 	void RemComponent(int);
-	Transform getTransform();
+	Transform* getTransform();
 	void setTransform(Transform t);
 
 private:
