@@ -11,8 +11,7 @@ class RenderManager {
 public:
 	RenderManager();
 	//return the id of the drawable thing
-	int AddDrawable(std::vector<Vector3>*, std::vector<int>*, Transform*);
-	int AddMeshVec(std::vector<Mesh>*);
+	int AddDrawable(std::vector<Mesh>*, Transform*);
 	//remove drawable by id
 	void RemDrawable(int);
 	void Draw();

@@ -26,3 +26,7 @@ int Entity::AddComponent(Component* component) {
 void Entity::RemComponent(int i) {
 	components.erase(components.begin() + i);
 }
+
+Transform* Entity::getTransform() {
+	return &transform;
+}
