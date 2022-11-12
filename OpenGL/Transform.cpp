@@ -1,61 +1,61 @@
 Transform::Transform(float x, float y, float z,
 					 float sx, float sy, float sz,
 					 float rx, float ry, float rz) {
-	Translation.x = x;
-	Translation.y = y;
-	Translation.z = z;
-	Scale.x = x;
-	Scale.y = y;
-	Scale.z = z;
-	Rotation.x = x;
-	Rotation.y = y;
-	Rotation.z = z;
+	Translation.X = x;
+	Translation.Y = y;
+	Translation.Z = z;
+	Scale.X = x;
+	Scale.Y = y;
+	Scale.Z = z;
+	Rotation.X = x;
+	Rotation.Y = y;
+	Rotation.Z = z;
 }
 
 Transform::Transform() {
-	Translation.x = 0;
-	Translation.y = 0;
-	Translation.z = 0;
-	Scale.x = 1;
-	Scale.y = 1;
-	Scale.z = 1;
-	Rotation.x = 0;
-	Rotation.y = 0;
-	Rotation.z = 0;
+	Translation.X = 0;
+	Translation.Y = 0;
+	Translation.Z = 0;
+	Scale.X = 1;
+	Scale.Y = 1;
+	Scale.Z = 1;
+	Rotation.X = 0;
+	Rotation.Y = 0;
+	Rotation.Z = 0;
 }
 
-void Transform::SetTranslation(Vector3f v) {
+void Transform::SetTranslation(Vector3 v) {
 	Translation = v;
 }
 
-void Transform::SetScale(Vector3f v) {
+void Transform::SetScale(Vector3 v) {
 	Scale = v;
 }
 
-void Transform::SetRotation(Vector3f v) {
+void Transform::SetRotation(Vector3 v) {
 	Rotation = v;
 }
 
-Vector3f Transform::GetTranslation() {
+Vector3 Transform::GetTranslation() {
 	return Translation;
 }
 
-Vector3f Transform::GetScale() {
+Vector3 Transform::GetScale() {
 	return Scale;
 }
 
-Vector3f Transform::GetRotation() {
+Vector3 Transform::GetRotation() {
 	return Rotation;
 }
 
-void Transform::AddTranslation(Vector3f v) {
+void Transform::AddTranslation(Vector3 v) {
 	Translation = Translation + v;
 }
 
-void Transform::AddScale(Vector3f v) {
+void Transform::AddScale(Vector3 v) {
 	Scale = Scale + v;
 }
 
-void Transform::AddRotation(Vector3f v) {
+void Transform::AddRotation(Vector3 v) {
 	Rotation = Rotation + v;
 }

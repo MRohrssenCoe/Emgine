@@ -11,13 +11,15 @@ class RenderManager {
 public:
 	RenderManager();
 	//return the id of the drawable thing
-	int AddDrawable(std::vector<Vector3f>*, std::vector<int>*, Transform*);
+	int AddDrawable(std::vector<Vector3>*, std::vector<int>*, Transform*);
+	int AddMeshVec(std::vector<Mesh>*);
 	//remove drawable by id
 	void RemDrawable(int);
 	void Draw();
 private:
-	//list of drawable things - TODO decide data type
-	std::vector<std::vector<Vector3f>*> models;
+	// a model may be multiple different meshes, so we will pass pointers to vectors of meshes
+	std::vector<std::vector<Mesh>*> mmmodels;
+	std::vector<std::vector<Vector3>*> models;
 	std::vector<std::vector<int>*> indices;
 	std::vector<Transform*> transforms;
 	int numModels = 0;
