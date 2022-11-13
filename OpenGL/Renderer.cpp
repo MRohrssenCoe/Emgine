@@ -22,7 +22,7 @@ void RenderManager::Draw() {
 		vector<int>* ind = indices[i];
 		Transform *currentTransform = transforms[i];
 		Vector3f s = currentTransform->GetScale();
-		Vector3f r = currentTransform->GetRotation();
+		//Vector3f r = currentTransform->GetRotation();
 		Vector3f t = currentTransform->GetTranslation();
 
 
@@ -31,9 +31,9 @@ void RenderManager::Draw() {
 		glLoadIdentity();
 		glPushMatrix();
 		glScalef(s.x, s.y, s.z);
-		glRotatef(r.x, 1, 0, 0);
-		glRotatef(r.y, 0, 1, 0);
-		glRotatef(r.z, 0, 0, 1);
+		//glRotatef(r.x, 1, 0, 0);
+		//glRotatef(r.y, 0, 1, 0);
+		//glRotatef(r.z, 0, 0, 1);
 		glTranslatef(t.x, t.y, t.z);
 
 		Vector3f* verticesPtr = currentModel->data();
