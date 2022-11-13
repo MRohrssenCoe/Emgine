@@ -7,3 +7,6 @@ bool const Component::GetInitFinished() {
 void Component::SetInitFinished() {
 	initFinished = true;
 }
+void Component::SetParent(Entity* e) {
+	parent = e;
+}

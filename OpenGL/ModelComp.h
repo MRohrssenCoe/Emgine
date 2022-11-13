@@ -14,12 +14,7 @@ public:
 	bool dynamic;
 
 private:
-	void CalcNormals();
 	std::vector<Mesh> meshes;
-	std::vector<Vector3> model;
-	std::vector<Material> materials;
-	std::vector<Vector3> normals;
-	std::vector<int> indices;
 };
 
 #include "ModelComp.cpp"

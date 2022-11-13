@@ -1,5 +1,6 @@
 Entity::Entity() {
-
+	transform = Transform();
+	std::cout << &transform << std::endl;
 }
 Entity::~Entity() {
 
@@ -19,6 +20,7 @@ void Entity::Tick() {
 class Component;
 int Entity::AddComponent(Component* component) {
 	components.push_back(component);
+	component->SetParent(this);
 	numComponents++;
 	return numComponents - 1;
 }
