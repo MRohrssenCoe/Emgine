@@ -13,16 +13,13 @@ void RenderManager::Draw() {
 	glLoadIdentity();
 	//gluPerspective must be called prior to gluLookAt()!!!
 	gluPerspective(90, 16.0 / 9.0, 1, 1000);
-	gluLookAt(10, 10, 10, 0, 0, 0, 0, 1, 0);
+	gluLookAt(76, 76, 76, 0, 0, 0, 0, 1, 0);
 
 	//draw all models 
 	for (int i = 0; i < numModels; i++) {
 		//get current values to work with
 		std:vector<Mesh>* curModel = mmmodels[i];
 		Transform* currentTransform = transforms[i];
-
-		std::cout << currentTransform << std::endl;
-
 		Vector3 s = currentTransform->GetScale();
 		Vector3 r = currentTransform->GetRotation();
 		Vector3 t = currentTransform->GetTranslation();
@@ -68,7 +65,7 @@ void RenderManager::Draw() {
 
 
 			//shade model
-			glShadeModel(GL_SMOOTH);
+			glShadeModel(GL_FLAT);
 
 			for (int j = 0; j < curModel[i][curMeshIndex].Indices.size(); j += 3) {
 				GLfloat normal[3];
@@ -78,7 +75,6 @@ void RenderManager::Draw() {
 				GLfloat v3[3] = { verticesPtr[indicesPtr[j+2]].Position.X, verticesPtr[indicesPtr[j+2]].Position.Y, verticesPtr[indicesPtr[j+2]].Position.Z };
 				//this should be precalculated but oh well.
 				normalVector(v1, v2, v3, normal);
-				std::cout << "x:" << normal[0] << "y:" << normal[1] << "z:" << normal[2] << std::endl;
 				for (int i = 0; i < 2; i++)
 					normal[i] == -0.f ? 0 : normal[i];
 				glBegin(GL_POLYGON);
@@ -87,6 +83,7 @@ void RenderManager::Draw() {
 					glVertex3fv(v2);
 					glVertex3fv(v3);
 				glEnd();
+
 			}
 		}
 		glPopMatrix();
@@ -125,7 +122,9 @@ void engineGLInit(GLfloat width, GLfloat height) {
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glEnable(GL_NORMALIZE);
-
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CCW);
 	glutDisplayFunc(Draw);
 	RM = RenderManager();
 }

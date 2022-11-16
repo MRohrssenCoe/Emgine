@@ -11,4 +11,5 @@ C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\OBJ_Loader.h(505,23): warn
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\ModelComp.cpp(4,14): warning C4099: 'Vector3': type name first seen using 'struct' now seen using 'class'
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\EngineStructs.h(8): message : see declaration of 'Vector3'
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\EngineMain.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
+EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   OpenGL.vcxproj -> C:\Users\MichaelRohrssen\Desktop\engine\Emgine\Debug\OpenGL.exe
