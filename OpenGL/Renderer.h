@@ -18,8 +18,6 @@ public:
 private:
 	// a model may be multiple different meshes, so we will pass pointers to vectors of meshes
 	std::vector<std::vector<Mesh>*> mmmodels;
-	std::vector<std::vector<Vector3>*> models;
-	std::vector<std::vector<int>*> indices;
 	std::vector<Transform*> transforms;
 	int numModels = 0;
 };

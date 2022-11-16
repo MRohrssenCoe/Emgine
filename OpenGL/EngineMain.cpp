@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
 
-	model = Model("../marquisv.3.obj", true);
+	model = Model("../red2.obj", true);
 	Component* c = &model;
 	Marquis.AddComponent(c);
 
