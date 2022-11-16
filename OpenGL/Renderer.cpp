@@ -60,7 +60,7 @@ void RenderManager::Draw() {
 			glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 			glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
 			glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-			//glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+			glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 			glPopMatrix();
 
 
@@ -73,7 +73,7 @@ void RenderManager::Draw() {
 				GLfloat v1[3] = { verticesPtr[indicesPtr[j]].Position.X, verticesPtr[indicesPtr[j]].Position.Y, verticesPtr[indicesPtr[j]].Position.Z };
 				GLfloat v2[3] = { verticesPtr[indicesPtr[j+1]].Position.X, verticesPtr[indicesPtr[j+1]].Position.Y, verticesPtr[indicesPtr[j+1]].Position.Z };
 				GLfloat v3[3] = { verticesPtr[indicesPtr[j+2]].Position.X, verticesPtr[indicesPtr[j+2]].Position.Y, verticesPtr[indicesPtr[j+2]].Position.Z };
-				//this should be precalculated but oh well.
+				// TODO make normals precomputed.
 				normalVector(v1, v2, v3, normal);
 				for (int i = 0; i < 2; i++)
 					normal[i] == -0.f ? 0 : normal[i];
