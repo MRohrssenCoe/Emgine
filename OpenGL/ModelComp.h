@@ -5,14 +5,11 @@
 class Model : public Component {
 public:
 	Model();
-	Model(std::string, bool);
+	Model(std::string);
 	void Init() override;
 	void Tick() override;
 	~Model() override;
 	std::string ModelPath;
-	// if a model is dynamic its normals must be recalculated
-	bool dynamic;
-
 private:
 	std::vector<Mesh> meshes;
 };

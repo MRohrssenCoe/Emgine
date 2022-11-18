@@ -5,7 +5,6 @@ void SetMaterial(Material*);
 
 void RenderManager::Draw() {
 	using namespace std;
-	
 
 	//glLookAt call here
 	//glMatrixMode(GL_PROJECTION)
@@ -13,7 +12,7 @@ void RenderManager::Draw() {
 	glLoadIdentity();
 	//gluPerspective must be called prior to gluLookAt()!!!
 	gluPerspective(90, 16.0 / 9.0, 1, 1000);
-	gluLookAt(76, 76, 76, 0, 0, 0, 0, 1, 0);
+	gluLookAt(eyePos.X, eyePos.Y, eyePos.Z, 0, 0, 0, 0, 1, 0);
 
 	//draw all models 
 	for (int i = 0; i < numModels; i++) {
@@ -49,9 +48,9 @@ void RenderManager::Draw() {
 			GLfloat lmodel_ambient[] = { .4, .4, .4, 1.0 };
 			glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
 
-			GLfloat light_position[] = { -100, 100, -100, POSITIONAL };
-			GLfloat light_ambient[] = { 0.1, 0.1, 0.1, 1.0 };
-			GLfloat light_diffuse[] = { .9, .9, .9, 1.0 };
+			GLfloat light_position[] = { -100, 100, -100, DIRECTIONAL };
+			GLfloat light_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+			GLfloat light_diffuse[] = { .5, .5, .5, 1.0 };
 			GLfloat light_specular[] = { 0.4, 0.4, 0.4, 1.0 };
 
 			// set properties this light 
@@ -65,7 +64,7 @@ void RenderManager::Draw() {
 
 
 			//shade model
-			glShadeModel(GL_FLAT);
+			glShadeModel(GL_SMOOTH);
 
 			for (int j = 0; j < curModel[i][curMeshIndex].Indices.size(); j += 3) {
 				GLfloat normal[3];
@@ -73,17 +72,18 @@ void RenderManager::Draw() {
 				GLfloat v1[3] = { verticesPtr[indicesPtr[j]].Position.X, verticesPtr[indicesPtr[j]].Position.Y, verticesPtr[indicesPtr[j]].Position.Z };
 				GLfloat v2[3] = { verticesPtr[indicesPtr[j+1]].Position.X, verticesPtr[indicesPtr[j+1]].Position.Y, verticesPtr[indicesPtr[j+1]].Position.Z };
 				GLfloat v3[3] = { verticesPtr[indicesPtr[j+2]].Position.X, verticesPtr[indicesPtr[j+2]].Position.Y, verticesPtr[indicesPtr[j+2]].Position.Z };
+				
 				// TODO make normals precomputed.
 				normalVector(v1, v2, v3, normal);
 				for (int i = 0; i < 2; i++)
 					normal[i] == -0.f ? 0 : normal[i];
+				
 				glBegin(GL_POLYGON);
 					glNormal3fv(normal);
 					glVertex3fv(v1);
 					glVertex3fv(v2);
 					glVertex3fv(v3);
 				glEnd();
-
 			}
 		}
 		glPopMatrix();
@@ -101,6 +101,10 @@ void RenderManager::RemDrawable(int id) {
 	mmmodels.erase(mmmodels.begin() + id);
 }
 
+void RenderManager::ChangeDrawable(int index, std::vector<Mesh>* ptr) {
+	mmmodels[index] = ptr;
+}
+
 int inline RenderManager::AddDrawable(std::vector<Mesh>* m, Transform* t) {
 	numModels++;
 	mmmodels.push_back(m);
@@ -110,6 +114,7 @@ int inline RenderManager::AddDrawable(std::vector<Mesh>* m, Transform* t) {
 
 void Draw() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	RM.Draw();
 }
@@ -127,6 +132,9 @@ void engineGLInit(GLfloat width, GLfloat height) {
 	glFrontFace(GL_CCW);
 	glutDisplayFunc(Draw);
 	RM = RenderManager();
+	RM.eyePos.X = 75;
+	RM.eyePos.Y = 75;
+	RM.eyePos.Z = 75;
 }
 RenderManager& GetRenderManager() {
 	return RM;
@@ -137,10 +145,10 @@ void SetMaterial(Material* m) {
 	GLfloat mat_ambient[] = { m->Ka.X, m->Ka.Y, m->Ka.Z, 1.0 };
 	GLfloat mat_diffuse[] = { m->Kd.X, m->Kd.Y, m->Kd.Z, 1.0 };
 	GLfloat mat_specular[] = { m->Ks.X, m->Ks.Y, m->Ks.Z, 1.0 };
-	GLfloat mat_shininess[] = { m->Ns };
+	GLfloat mat_shininess[] = { m->Ns / 128 };
 
 	// set material properties
-	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_diffuse);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);

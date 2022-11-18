@@ -1,9 +1,9 @@
 #include "EngineMain.h"
 #include "OBJ_Loader.h"
 #include "ModelComp.h"
-
+#include "LODModelComp.h"
 std::vector<Entity> entities;
-Model model;
+LODModelComp model;
 Entity Marquis;
 void mainloop(int value)
 {
@@ -22,8 +22,9 @@ int main(int argc, char **argv) {
 
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
-
-	model = Model("../marquisv.3.obj", true);
+	std::string names[2]{ "../marquisv.5.obj", "../ball.obj"};
+	float dists[2]{ 0, 75 };
+	model = LODModelComp(names, dists, 2);
 	Component* c = &model;
 	Marquis.AddComponent(c);
 
