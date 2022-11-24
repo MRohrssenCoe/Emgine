@@ -26,7 +26,9 @@ void LODModelComp::Init() {
 void LODModelComp::Tick() {
 
 	//if LOD has changed update model in RM
-
+	float dist = CalcDistance(GetParent()->getTransform()->GetTranslation(), RM.eyePos);
+	int curLOD = decideLOD();
+	RM.ChangeDrawable(modelIndexInRM, &models[curLOD]);
 }
 LODModelComp::~LODModelComp() {
 

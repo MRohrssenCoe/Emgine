@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
-	std::string names[2]{ "../marquisv.5.obj", "../ball.obj"};
+	std::string names[2]{ "../ball.obj","../marquisv.5.obj" };
 	float dists[2]{ 0, 75 };
 	model = LODModelComp(names, dists, 2);
 	Component* c = &model;
