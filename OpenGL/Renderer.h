@@ -15,6 +15,9 @@ public:
 	//remove drawable by id
 	void RemDrawable(int);
 	void Draw();
+	void ChangeDrawable(int, std::vector<Mesh>*);
+	Vector3 eyePos;
+
 private:
 	// a model may be multiple different meshes, so we will pass pointers to vectors of meshes
 	std::vector<std::vector<Mesh>*> mmmodels;

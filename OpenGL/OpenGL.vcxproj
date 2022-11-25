@@ -19,6 +19,7 @@
     <ClInclude Include="EngineStructs.h" />
     <ClInclude Include="EngMath.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="LODModelComp.h" />
     <ClInclude Include="ModelComp.h" />
     <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="Renderer.h" />

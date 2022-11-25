@@ -1,16 +1,12 @@
 ﻿cl : command line  warning D9035: option 'Gm' has been deprecated and will be removed in a future release
   EngineMain.cpp
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(38,43): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(70,22): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(21,6): warning C4102: 'std': unreferenced label
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(37,43): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(69,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(20,6): warning C4102: 'std': unreferenced label
   The contents of <variant> are available only with C++17 or later.
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(462,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(499,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(505,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\ModelComp.cpp(4,14): warning C4099: 'Vector3': type name first seen using 'struct' now seen using 'class'
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineStructs.h(8): message : see declaration of 'Vector3'
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
-  LINK : C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe not found or not built by the last incremental link; performing full link
-EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe
