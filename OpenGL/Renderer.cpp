@@ -142,7 +142,7 @@ RenderManager& GetRenderManager() {
 
 void SetMaterial(Material* m) {
 	
-	GLfloat mat_ambient[] = { m->Ka.X, m->Ka.Y, m->Ka.Z, 1.0 };
+	GLfloat mat_ambient[] = { m->Kd.X, m->Kd.Y, m->Kd.Z, 1.0 };
 	GLfloat mat_diffuse[] = { m->Kd.X, m->Kd.Y, m->Kd.Z, 1.0 };
 	GLfloat mat_specular[] = { m->Ks.X, m->Ks.Y, m->Ks.Z, 1.0 };
 	GLfloat mat_shininess[] = { m->Ns / 128 };

@@ -3,8 +3,11 @@
 Entity::Entity() {
 	transform = Transform();
 	std::cout << &transform << std::endl;
-	//GetEntities().push_back(*this);
-
+	Name = "";
+}
+Entity::Entity(std::string name, Transform t){
+	Name = name;
+	transform = t;
 }
 Entity::~Entity() {
 
@@ -35,4 +38,10 @@ void Entity::RemComponent(int i) {
 
 Transform* Entity::getTransform() {
 	return &transform;
+}
+std::string Entity::GetName() {
+	return Name;
+}
+void Entity::SetName(std::string name) {
+	Name = name;
 }

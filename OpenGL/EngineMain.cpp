@@ -4,7 +4,7 @@
 #include "LODModelComp.h"
 #include "BoxArea.h"
 
-LODModelComp model;
+Model model;
 Entity Marquis;
 Entity InteriorLoadingZone;
 BoxArea box;
@@ -25,11 +25,14 @@ int main(int argc, char **argv) {
 
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
-	std::string names[2]{ "../ball.obj","../marquisv.5.obj" };
-	float dists[2]{ 0, 75 };
-	model = LODModelComp(names, dists, 2);
-	Component* c = &model;
-	Marquis.AddComponent(c);
+	std::string names[1]{ "../marquisv.5.obj" };
+	float dists[1]{ 0 };
+
+	Marquis = Entity("Marquis", Transform());
+	InteriorLoadingZone = Entity("Loader", Transform());
+	model = Model("../marquisv.3.obj");
+
+	Marquis.AddComponent(&model);
 	InteriorLoadingZone.AddComponent(&box);
 	entities.push_back(Marquis);
 	entities.push_back(InteriorLoadingZone);
