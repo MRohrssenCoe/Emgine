@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
 
 	Marquis = Entity("Marquis", Transform());
 	InteriorLoadingZone = Entity("Loader", Transform());
-	model = Model("../marquisv.3.obj");
+	model = Model("../marquisLOD1.obj");
 
 	Marquis.AddComponent(&model);
 	InteriorLoadingZone.AddComponent(&box);

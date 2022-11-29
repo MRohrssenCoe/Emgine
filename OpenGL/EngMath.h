@@ -7,7 +7,7 @@ void normalize(float v[])
 	if (d == 0.0)
 	{
 		std::cout << "zero length vector" << std::endl;
-		exit(1);
+		//exit(1);
 	}
 
 	for (int i = 0; i < 3; i++)
