@@ -1,12 +1,13 @@
 #pragma once
 #include "Transform.h"
 #include "Component.h"
-#include <variant>
+#include "EngineMain.h"
+
 
 class Entity {
 public:
 	Entity();
-	virtual void Init();
+	void Init();
 	void Tick();
 	virtual ~Entity();
 	int AddComponent(Component* component);

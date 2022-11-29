@@ -50,5 +50,8 @@
     <ClInclude Include="LODModelComp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BoxArea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

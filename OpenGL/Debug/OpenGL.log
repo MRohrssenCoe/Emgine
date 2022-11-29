@@ -3,10 +3,11 @@
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(37,43): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(69,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Renderer.cpp(20,6): warning C4102: 'std': unreferenced label
-  The contents of <variant> are available only with C++17 or later.
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\Entity.cpp(16,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(462,25): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(499,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\OBJ_Loader.h(505,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(11,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\BoxArea.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Admin\Desktop\Engine\Emgine\OpenGL\EngineMain.cpp(14,20): warning C4018: '<': signed/unsigned mismatch
+EngineMain.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   OpenGL.vcxproj -> C:\Users\Admin\Desktop\Engine\Emgine\Debug\OpenGL.exe

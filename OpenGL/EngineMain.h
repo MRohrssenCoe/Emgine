@@ -7,8 +7,11 @@
 #include "Renderer.h"
 #include "Entity.h"
 #include "Component.h"
+#include <vector>
 
 void SetWindow(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 }
+std::vector<Entity> entities;
+std::vector<Entity>& GetEntities();
