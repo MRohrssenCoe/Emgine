@@ -5,7 +5,6 @@ float CalcDistance(Vector3 p1, Vector3 p2);
 LODModelComp::LODModelComp(){}
 LODModelComp::LODModelComp(std::string* modelPathIn, float* dists, int numMods) {
 	numModels = numMods;
-	
 	for (int i = 0; i < numModels; i++) {
 		modelPaths.push_back(modelPathIn[i]);
 		distances.push_back(dists[i]);
