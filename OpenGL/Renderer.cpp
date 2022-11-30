@@ -17,7 +17,7 @@ void RenderManager::Draw() {
 	//draw all models 
 	for (int i = 0; i < numModels; i++) {
 		//get current values to work with
-		std:vector<Mesh>* curModel = mmmodels[i];
+		std::vector<Mesh>* curModel = mmmodels[i];
 		Transform* currentTransform = transforms[i];
 		Vector3 s = currentTransform->GetScale();
 		Vector3 r = currentTransform->GetRotation();
@@ -94,6 +94,7 @@ RenderManager::RenderManager() {
 }
 
 void RenderManager::RemDrawable(int id) {
+	numModels--;
 	mmmodels.erase(mmmodels.begin() + id);
 }
 

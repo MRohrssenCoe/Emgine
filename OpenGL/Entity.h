@@ -17,11 +17,12 @@ public:
 	void setTransform(Transform t);
 	std::string GetName();
 	void SetName(std::string);
+	int numComponents = 0;
+	std::vector<Component*> components;
+
 
 private:
 	Transform transform;
-	std::vector<Component*> components;
-	int numComponents = 0;
 	std::string Name;
 };
 

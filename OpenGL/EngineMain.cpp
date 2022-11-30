@@ -4,31 +4,42 @@
 #include "LODModelComp.h"
 #include "BoxArea.h"
 #include "Renderer.h"
-
+#include <set>
 Model model;
+Model indoorsmodel;
 Entity Marquis;
+Entity MarquisInterior;
 Entity InteriorLoadingZone;
 BoxArea box;
-
+Entity Player;
 Vector3 Position;
 float theta = 0;
 float phi = 0;
 bool W = false, A = false, S = false, D = false;
 
+void LoadIndoors() {
+	entities.clear();
+	RM.RemDrawable(0);
+	entities.push_back(MarquisInterior);
+}
+
 void mainloop(int value)
 {
 	//game update
 	for (int i = 0; i < entities.size(); i++) {
+		if (entities[i].GetName() == "Player")
+			entities[i].getTransform()->SetTranslation(RM.eyePos);
 		entities[i].Tick(/*delta time*/);
+		if (entities[i].GetName() == "Loader") {
+			for (int j = 0; j < entities[i].numComponents; i++) {
+				if (typeid(*entities[i].components[j]) == typeid(BoxArea)) {
+					BoxArea *b = (BoxArea*) entities[i].components[j];
+					if (b->PlayerOverlapping)
+						LoadIndoors();
+				}
+			}
+		}
 	}
-	//DeltaMouseX = LastMouseX - CurMouseX;
-	//DeltaMouseY = LastMouseY - CurMouseY;
-	//LastMouseX = CurMouseX;
-	//LastMouseY = CurMouseY;
-
-
-	//theta += DeltaMouseX / 1000;
-	//phi += DeltaMouseY / 1000;
 
 	RightAxis += 1 * D;
 	RightAxis -= 1 * A;
@@ -56,6 +67,9 @@ void mainloop(int value)
 	ForwardAxis = 0;
 	ForwardAxis = 0;
 
+	//std::cout << RM.eyePos.X << RM.eyePos.Y << RM.eyePos.Z << std::endl;
+
+
 	glutPostRedisplay();
 	glutTimerFunc(32, mainloop, 0);
 }
@@ -71,6 +85,9 @@ void KeyboardInput(unsigned char c, int x, int y) {
 		D = true;
 	if (c == 'a')
 		A = true;
+	if (c == ' ') {
+		LoadIndoors();
+	}
 }
 
 void KeyboardUp(unsigned char c, int x, int y) {
@@ -100,14 +117,18 @@ int main(int argc, char **argv) {
 	float dists[1]{ 0 };
 
 	Marquis = Entity("Marquis", Transform());
+	MarquisInterior = Entity("MarquisInterior", Transform());
 	InteriorLoadingZone = Entity("Loader", Transform());
 	model = Model("../marquisLOD1.obj");
-
+	indoorsmodel = Model("../insidemarquis.obj");
+	box = BoxArea(Vector3(160, 0, -5), Vector3(166, 12, 5));
+	Player = Entity("Player", Transform());
 	Marquis.AddComponent(&model);
+	MarquisInterior.AddComponent(&indoorsmodel);
 	InteriorLoadingZone.AddComponent(&box);
 	entities.push_back(Marquis);
 	entities.push_back(InteriorLoadingZone);
-
+	entities.push_back(Player);
 	glutMotionFunc(MouseInput);
 	glutPassiveMotionFunc(MouseInput);
 	glutKeyboardFunc(KeyboardInput);
