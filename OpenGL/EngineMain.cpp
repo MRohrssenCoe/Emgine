@@ -113,8 +113,6 @@ int main(int argc, char **argv) {
 
 	glutInit(&argc, argv);
 	engineGLInit(1600, 900);
-	std::string names[1]{ "../marquisv.5.obj" };
-	float dists[1]{ 0 };
 
 	Marquis = Entity("Marquis", Transform());
 	MarquisInterior = Entity("MarquisInterior", Transform());
@@ -123,13 +121,15 @@ int main(int argc, char **argv) {
 	indoorsmodel = Model("../insidemarquis.obj");
 	box = BoxArea(Vector3(160, 0, -5), Vector3(166, 12, 5));
 	Player = Entity("Player", Transform());
+
 	Marquis.AddComponent(&model);
 	MarquisInterior.AddComponent(&indoorsmodel);
 	InteriorLoadingZone.AddComponent(&box);
 	entities.push_back(Marquis);
 	entities.push_back(InteriorLoadingZone);
 	entities.push_back(Player);
-	glutMotionFunc(MouseInput);
+
+	//glutMotionFunc(MouseInput);
 	glutPassiveMotionFunc(MouseInput);
 	glutKeyboardFunc(KeyboardInput);
 	glutKeyboardUpFunc(KeyboardUp);

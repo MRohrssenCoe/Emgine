@@ -73,10 +73,18 @@ void RenderManager::Draw() {
 				GLfloat v2[3] = { verticesPtr[indicesPtr[j+1]].Position.X, verticesPtr[indicesPtr[j+1]].Position.Y, verticesPtr[indicesPtr[j+1]].Position.Z };
 				GLfloat v3[3] = { verticesPtr[indicesPtr[j+2]].Position.X, verticesPtr[indicesPtr[j+2]].Position.Y, verticesPtr[indicesPtr[j+2]].Position.Z };
 				
-				// TODO make normals precomputed.
-				normalVector(v1, v2, v3, normal);
+				GLfloat n1[3] = { verticesPtr[indicesPtr[j]].Normal.X, verticesPtr[indicesPtr[j]].Normal.Y, verticesPtr[indicesPtr[j]].Normal.Z };
+				GLfloat n2[3] = { verticesPtr[indicesPtr[j+1]].Normal.X, verticesPtr[indicesPtr[j+1]].Normal.Y, verticesPtr[indicesPtr[j+1]].Normal.Z };
+				GLfloat n3[3] = { verticesPtr[indicesPtr[j+2]].Normal.X, verticesPtr[indicesPtr[j+2]].Normal.Y, verticesPtr[indicesPtr[j+2]].Normal.Z };
+
+				normal[0] = (n1[0] + n2[0] + n3[0]) / 3;
+				normal[1] = (n1[1] + n2[1] + n3[1]) / 3;
+				normal[2] = (n1[2] + n2[2] + n3[2]) / 3;
+
+				normalize(normal);
+				//normalVector(v1, v2, v3, normal);
 				glBegin(GL_POLYGON);
-					glNormal3fv(normal);
+					glNormal3fv(n1);
 					glVertex3fv(v1);
 					glVertex3fv(v2);
 					glVertex3fv(v3);
