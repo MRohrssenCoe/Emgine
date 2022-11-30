@@ -8,5 +8,5 @@ C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\OBJ_Loader.h(462,25): warn
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\OBJ_Loader.h(499,22): warning C4018: '<': signed/unsigned mismatch
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\OBJ_Loader.h(505,23): warning C4018: '<': signed/unsigned mismatch
 C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\BoxArea.cpp(12,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\EngineMain.cpp(14,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\MichaelRohrssen\Desktop\engine\Emgine\OpenGL\EngineMain.cpp(21,20): warning C4018: '<': signed/unsigned mismatch
   OpenGL.vcxproj -> C:\Users\MichaelRohrssen\Desktop\engine\Emgine\Debug\OpenGL.exe

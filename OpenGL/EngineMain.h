@@ -15,3 +15,14 @@ void SetWindow(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top) {
 }
 std::vector<Entity> entities;
 std::vector<Entity>& GetEntities();
+
+
+
+float CurMouseX = 0;
+float CurMouseY = 0;
+
+float DeltaMouseX = 0;
+float DeltaMouseY = 0;
+
+float ForwardAxis = 0;
+float RightAxis = 0;

@@ -26,6 +26,10 @@ struct Vector3
 	{
 		return (this->X == other.X && this->Y == other.Y && this->Z == other.Z);
 	}
+	Vector3 operator*(const Vector3& other) const {
+		return Vector3(this->X * other.X, this->Y * other.Y, this->Z * other.Z);
+	}
+
 	// Bool Not Equals Operator Overload
 	bool operator!=(const Vector3& other) const
 	{

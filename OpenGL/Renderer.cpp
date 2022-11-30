@@ -12,7 +12,7 @@ void RenderManager::Draw() {
 	glLoadIdentity();
 	//gluPerspective must be called prior to gluLookAt()!!!
 	gluPerspective(90, 16.0 / 9.0, 1, 1000);
-	gluLookAt(eyePos.X, eyePos.Y, eyePos.Z, 0, 0, 0, 0, 1, 0);
+	gluLookAt(eyePos.X, eyePos.Y, eyePos.Z, lookAtPos.X, lookAtPos.Y, lookAtPos.Z, 0, 1, 0);
 
 	//draw all models 
 	for (int i = 0; i < numModels; i++) {
@@ -75,9 +75,6 @@ void RenderManager::Draw() {
 				
 				// TODO make normals precomputed.
 				normalVector(v1, v2, v3, normal);
-				for (int i = 0; i < 2; i++)
-					normal[i] == -0.f ? 0 : normal[i];
-				
 				glBegin(GL_POLYGON);
 					glNormal3fv(normal);
 					glVertex3fv(v1);
@@ -91,7 +88,6 @@ void RenderManager::Draw() {
 	glutSwapBuffers();
 
 }
-
 
 RenderManager::RenderManager() {
 	transforms = std::vector<Transform*>();
@@ -113,7 +109,7 @@ int inline RenderManager::AddDrawable(std::vector<Mesh>* m, Transform* t) {
 }
 
 void Draw() {
-	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClearColor(178/255, 1, 1, 1);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	RM.Draw();
@@ -122,7 +118,6 @@ void Draw() {
 void engineGLInit(GLfloat width, GLfloat height) {
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowSize(width, height);
-
 	glutCreateWindow("Emgine");
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
@@ -145,7 +140,7 @@ void SetMaterial(Material* m) {
 	GLfloat mat_ambient[] = { m->Kd.X, m->Kd.Y, m->Kd.Z, 1.0 };
 	GLfloat mat_diffuse[] = { m->Kd.X, m->Kd.Y, m->Kd.Z, 1.0 };
 	GLfloat mat_specular[] = { m->Ks.X, m->Ks.Y, m->Ks.Z, 1.0 };
-	GLfloat mat_shininess[] = { m->Ns / 128 };
+	GLfloat mat_shininess[] = { m->Ns / 4 };
 
 	// set material properties
 	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_diffuse);

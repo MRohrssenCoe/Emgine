@@ -17,6 +17,7 @@ public:
 	void Draw();
 	void ChangeDrawable(int, std::vector<Mesh>*);
 	Vector3 eyePos;
+	Vector3 lookAtPos;
 
 private:
 	// a model may be multiple different meshes, so we will pass pointers to vectors of meshes
