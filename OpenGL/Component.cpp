@@ -4,8 +4,8 @@ Entity* Component::GetParent() {
 bool const Component::GetInitFinished() {
 	return initFinished;
 }
-void Component::SetInitFinished() {
-	initFinished = true;
+void Component::SetInitFinished(bool b) {
+	initFinished = b;
 }
 void Component::SetParent(Entity* e) {
 	parent = e;

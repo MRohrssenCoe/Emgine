@@ -10,7 +10,7 @@ public:
 	void SetParent(Entity*);
 	virtual ~Component() {};
 	bool const GetInitFinished();
-	void SetInitFinished();
+	void SetInitFinished(bool);
 private:
 	Entity* parent;
 	bool initFinished = false;

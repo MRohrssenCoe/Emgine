@@ -17,10 +17,25 @@ float theta = 0;
 float phi = 0;
 bool W = false, A = false, S = false, D = false;
 
+bool Outside = true;
+
 void LoadIndoors() {
-	entities.clear();
-	RM.RemDrawable(0);
-	entities.push_back(MarquisInterior);
+	if (Outside) {
+		entities.clear();
+		RM.RemDrawable(0);
+		Model* m = (Model*)MarquisInterior.components[0];
+		m->SetInitFinished(false);
+		entities.push_back(MarquisInterior);
+		Outside = false;
+	}
+	else {
+		entities.clear();
+		RM.RemDrawable(0);
+		Model* m = (Model*)Marquis.components[0];
+		m->SetInitFinished(false);
+		entities.push_back(Marquis);
+		Outside = true;
+	}
 }
 
 void mainloop(int value)
