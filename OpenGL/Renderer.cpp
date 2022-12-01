@@ -48,7 +48,7 @@ void RenderManager::Draw() {
 			GLfloat lmodel_ambient[] = { .4, .4, .4, 1.0 };
 			glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
 
-			GLfloat light_position[] = { -100, 100, -100, DIRECTIONAL };
+			GLfloat light_position[] = { -100, 100, -100, 1.0 };
 			GLfloat light_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
 			GLfloat light_diffuse[] = { .5, .5, .5, 1.0 };
 			GLfloat light_specular[] = { 0.4, 0.4, 0.4, 1.0 };
